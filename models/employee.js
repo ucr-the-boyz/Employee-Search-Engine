@@ -6,6 +6,11 @@ var employee = {
         orm.selectAllEmployees('employee', function(result){
             cb(result);
         })
+    },
+    addEmployee: function(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, cb){
+        orm.insertEmployee(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, function(result){
+            cb(result)
+        })
     }
 }
 
