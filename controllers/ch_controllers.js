@@ -15,6 +15,10 @@ router.get('/', function(req,res){
     res.render('index')
 })
 
+router.get('/employer-form', function(req, res){
+    res.render('employerform')
+})
+
 router.get('/employers', function (req, res){
     employer.allEmployers(function(data){
         var employerObj = {
@@ -26,6 +30,10 @@ router.get('/employers', function (req, res){
 })
 
 var employee = require('../models/employee')
+
+router.get('/employee-form', function(req, res){
+    res.render('employeeform')
+})
 
 router.get('/employees', function (req, res){
     employee.allEmployees(function(data){

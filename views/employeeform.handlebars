@@ -11,11 +11,11 @@
 
 
 <div class="container">
-    <h1>Employer Profile</h1>
+    <h1>Employee Profile</h1>
     <hr />
     <div class="row">
 
-        <form class="col s12" action="/employer/create" method="post">
+        <form class="col s12" action="/employee/create" method="post">
 
             <div class="row">
 
@@ -30,36 +30,37 @@
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="business_name" type="text" class="validate" name="business_name">
-                    <label class="active" for="business_name">Business Name</label>
-                </div>
-
-                <div class="input-field col s6">
-                    <input id="languages" type="text" class="validate" name="languages">
-                    <label class="active" for="languages">Coding Languages Desired</label>
-                </div>
-
-                <div class="input-field col s6">
-                    <textarea id="project_details" class="materialize-textarea" name="project_details"
+                    <textarea id="languages_known" class="materialize-textarea" name="languages_known"
                         data-length="500"></textarea>
-                    <label class="active" for="project_details">Project Details</label>
+                    <label class="active" for="languages_known">Coding Languages Known</label>
+                </div>
+
+                <div class="col s6">
+                    <div class="input-field inline">
+                        Only input numbers as integers:
+                        <input id="years_experience" type="text" class="validate" name="years_experience">
+                        <label class="active" for="years_experience">Years of Experience</label>
+                    </div>
+                </div>
+
+                <div class="col s6">
+                    <div class="input-field inline">
+                        Only input numbers as integers:
+                        <input id="salary_desired" type="text" class="validate" name="salary_desired">
+                        <label class="active" for="salary_desired">Desired Salary</label>
+                    </div>
                 </div>
 
                 <div class="input-field col s6">
-                    <input id="budget" type="text" class="validate" name="budget">
-                    <label class="active" for="budget">Budget</label>
-                </div>
-
-                <div class="input-field col s6">
-                    <input id="employer_email" type="text" class="validate" name="employer_email">
-                    <label class="active" for="employer_email">Email</label>
+                    <input id="employee_email" type="text" class="validate" name="employee_email">
+                    <label class="active" for="employee_email">Email</label>
                 </div>
 
                 <div class="col s6">
                     <div class="input-field inline">
                         example 112-818-3903
-                        <input id="employer_phone" type="tel" class="validate" name="employer_phone">
-                        <label class="active" for="employer_phone">Phone Number</label>
+                        <input id="employee_phone" type="tel" class="validate" name="employee_phone">
+                        <label class="active" for="employee_phone">Phone Number</label>
                     </div>
                 </div>
 
