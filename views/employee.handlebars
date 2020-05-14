@@ -1,0 +1,57 @@
+    <nav>
+        <div class="nav-wrapper green darken-4">
+            <a href="/" class="brand-logo">Code Hunters</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/employees">Coders</a></li>
+                <li><a href="/employers">Employers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1 class="header">Employers</h1>
+            <h3 class="header">Below are a list of Employers hunting for coders!</h3>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="section">
+                    <div class="col s12">
+                        <span class="title">Code Hunters</span>
+                    </div>
+                    {{#each employee}}
+                    <div class="col s12 m6 l4">
+                        <div class="card green darken-4 hoverable small white-text">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{first_name}} {{last_name}}</span>
+                                <div class="divider"></div>
+                                <p>Years Experience: {{years_experience}}</p>
+                                <div class="divider"></div>
+                                <p>Project Details: {{project_details}}</p>
+                                <div class="divider"></div>
+                                <p>Languages Known: {{languages_known}}</p>
+                                <div class="divider"></div>
+                                <p>Desired Salary: {{salary_desired}}</p>
+                                <div class="divider"></div>
+                                <p>Email: {{employee_email}}</p>
+                                <div class="divider"></div>
+                                <p>Phone: {{employee_phone}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

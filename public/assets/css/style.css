@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.nav-wrapper {
+    padding-left: 10px;
+    height: 5%;
+}
+
+.left_panel,
+.right_panel {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+div.container6 p {
+    margin:
+
+}
+
+#mainDiv {
+    height: 95%;
+}
+
+.footer {
+    height: 3%;
+    color: #2196f3;
+}
+
+.hunterPic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.appBtn {
+    display: block;
+    margin: auto;
+    width: 40%;
+}
