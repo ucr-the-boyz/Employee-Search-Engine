@@ -1,11 +1,29 @@
-    <!-- nav section -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH Employer Form</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='./assets/css/style.css' type='text/css'>
+
+
+</head>
+
+<body>
+
     <nav>
         <div class="nav-wrapper blue">
-            <a href="/" class="brand-logo">Code Hunters</a>
+            <a href="/" class="brand-logo" style="margin-left: 20;">Code Hunters</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
-                <li><a href="/employees">Coders</a></li>
-                <li><a href="/employers">Employers</a></li>
+                <li><a href="/employees">All Coders</a></li>
+                <li><a href="/search-employees">Hunt Coders</a></li>
+                <li><a href="/employers">All Employers</a></li>
+                <li><a href="/search-employers">Hunt Employers</a></li>
             </ul>
         </div>
     </nav>
@@ -29,11 +47,13 @@
                         </h5><br><br>
 
                         <div class="hunterPic">
-                            <img src="/public/assets/imgs/white-and-gray-short-fur-cat-on-green-wooden-bench-3508173.jpg" alt="">
+                            <img src="/public/assets/imgs/white-and-gray-short-fur-cat-on-green-wooden-bench-3508173.jpg"
+                                alt="">
                         </div><br>
-                        
-                        <a class="white blue-text waves-effect waves-light btn">Search 4 Employers</a>
-                        <a href="/employee-form"class="white blue-text waves-effect waves-light btn">Enter Skills</a>
+
+                        <a href="/search-employees" class="white blue-text waves-effect waves-light btn">Search 4
+                            Employers</a>
+                        <a href="/employee-form" class="white blue-text waves-effect waves-light btn">Enter Skills</a>
 
                     </div>
 
@@ -50,11 +70,13 @@
                         </h5><br><br>
 
                         <div class="hunterPic">
-                            <img src="/public/assets/imgs/white-and-gray-short-fur-cat-on-green-wooden-bench-3508173.jpg" alt="">
+                            <img src="/public/assets/imgs/white-and-gray-short-fur-cat-on-green-wooden-bench-3508173.jpg"
+                                alt="">
                         </div><br>
 
-                        <a class="white blue-text waves-effect waves-light btn">Search 4 Coders</a>
-                        <a href = "/employer-form" class="white blue-text waves-effect waves-light btn">Enter New Job</a>
+                        <a href="/search-employers" class="white blue-text waves-effect waves-light btn">Search 4
+                            Coders</a>
+                        <a href="/employer-form" class="white blue-text waves-effect waves-light btn">Enter New Job</a>
 
                     </div>
 
@@ -81,3 +103,11 @@
     <div class="row footer">
         <div class="col s12">This div is 12-columns wide on all screen sizes</div>
     </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>

@@ -7,8 +7,8 @@ var employee = {
             cb(result);
         })
     },
-    addEmployee: function(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, cb){
-        orm.insertEmployee(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, function(result){
+    addEmployee: function(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, city_name, cb){
+        orm.insertEmployee(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, city_name, function(result){
             cb(result)
         })
     }

@@ -1,13 +1,15 @@
-    <nav>
-        <div class="nav-wrapper green darken-4">
-            <a href="/" class="brand-logo">Code Hunters</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/">Home</a></li>
-                <li><a href="/employees">Coders</a></li>
-                <li><a href="/employers">Employers</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav>
+    <div class="nav-wrapper green darken-4">
+        <a href="/" class="brand-logo">Code Hunters</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/employees">All Coders</a></li>
+            <li><a href="/search-employees">Hunt Coders</a></li>
+            <li><a href="/employers">All Employers</a></li>
+            <li><a href="/search-employers">Hunt Employers</a></li>
+        </ul>
+    </div>
+</nav>
 
 
 <div class="container">
@@ -37,8 +39,6 @@
                                 <div class="divider"></div>
                                 <p>Years Experience: {{years_experience}}</p>
                                 <div class="divider"></div>
-                                <p>Project Details: {{project_details}}</p>
-                                <div class="divider"></div>
                                 <p>Languages Known: {{languages_known}}</p>
                                 <div class="divider"></div>
                                 <p>Desired Salary: {{salary_desired}}</p>
@@ -46,6 +46,8 @@
                                 <p>Email: {{employee_email}}</p>
                                 <div class="divider"></div>
                                 <p>Phone: {{employee_phone}}</p>
+                                <div class="divider"></div>
+                                <p>Location: {{city_name}}</p>
                             </div>
                         </div>
                     </div>

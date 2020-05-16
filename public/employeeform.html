@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH Employee Form</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='./assets/css/style.css' type='text/css'>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="/" class="brand-logo" style="margin-left: 20;">Code Hunters</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/employees">All Coders</a></li>
+                <li><a href="/search-employees">Hunt Coders</a></li>
+                <li><a href="/employers">All Employers</a></li>
+                <li><a href="/search-employers">Hunt Employers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Employer Profile</h1>
+        <hr />
+        <div class="row">
+
+            <form class="col s12 employee-form" action="/employee/create" method="post">
+
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate" name="first_name">
+                        <label class="active" for="first_name">First Name</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate" name="last_name">
+                        <label class="active" for="last_name">Last Name</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <select multiple id="languages_known">
+                            <option value="" disabled selected>Choose Three Languages</option>
+                            <option value="html">HTML5</option>
+                            <option value="css">CSS3</option>
+                            <option value="js">Javascript</option>
+                            <option value="jquery">jQuery</option>
+                            <option value="bootstrap">Bootstrap</option>
+                            <option value="express">Express.js</option>
+                            <option value="react">R0eact.js</option>
+                            <option value="node">Node.js</option>
+                            <option value="database">Database Management</option>
+                            <option value="command">Command Line/Git</option>
+                        </select>
+                        <label for="languages_known">Coding Languages Desired</label>
+                    </div>
+
+                    <div class="col s6">
+                        <div class="input-field inline">
+                            Only input numbers as integers:
+                            <input id="years_experience" type="text" class="validate" name="years_experience">
+                            <label class="active" for="years_experience">Years of Experience</label>
+                        </div>
+                    </div>
+
+                    <div class="col s6">
+                        <div class="input-field inline">
+                            Only input numbers as integers:
+                            <input id="salary_desired" type="text" class="validate" name="salary_desired">
+                            <label class="active" for="salary_desired">Desired Salary</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="employee_email" type="text" class="validate" name="employee_email">
+                        <label class="active" for="employee_email">Email</label>
+                    </div>
+
+                    <div class="col s6">
+                        <div class="input-field inline">
+                            example 112-818-3903
+                            <input id="employee_phone" type="tel" class="validate" name="employee_phone">
+                            <label class="active" for="employee_phone">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="city_name" type="text" class="validate" name="city_name">
+                        <label class="active" for="city_name">Where are you located?</label>
+                    </div>
+
+                    <div class="input-field col s4">
+                        <button class="btn btn-info">Hunt for Coders!</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
