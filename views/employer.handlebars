@@ -1,14 +1,59 @@
-    <nav>
+<nav class="top-nav  blue darken-4">
+    <div class="container  blue darken-4">
         <div class="nav-wrapper blue darken-4">
-            <a href="/" class="brand-logo">Code Hunters</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/">Home</a></li>
-                <li><a href="/employees">Coders</a></li>
-                <li><a href="/employers">Employers</a></li>
-            </ul>
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <a href="/" class="brand-logo">Code Hunters</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/employees">All Coders</a></li>
+                        <li><a href="/search-employees">Hunt Coders</a></li>
+                        <li><a href="/employers">All Employers</a></li>
+                        <li><a href="/search-employers">Hunt Employers</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
+
+<ul class="sidenav sidenav-fixed">
+    <li class="search">
+        <div class="search-wrapper">
+            <input type="text" id="search" placeholder="Search">
+            <div class="search-results"></div>
+        </div>
+    </li>
+    <form action="#">
+        <p class="range-field">
+            Distance
+            <input type="range" id="miles_away" min="0" max="500" />
+        </p>
+        <p class="range-field">
+            Years of Experience
+            <input type="range" id="years_of_experience" min="0" max="20" />
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio" />
+                <span>Yellow</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="group1" type="radio" />
+                <span>Green</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio" disabled="disabled" />
+                <span>Brown</span>
+            </label>
+        </p>
+    </form>
+</ul>
 
 <div class="container">
     <div class="row">
@@ -29,6 +74,7 @@
                     <div class="col s12">
                         <span class="title">Code Hunters</span>
                     </div>
+
                     {{#each employer}}
                     <div class="col s12 m6 l4">
                         <div class="card blue darken-4 hoverable large white-text">
@@ -43,18 +89,20 @@
                             </div>
                             <div class="card-tabs">
                                 <ul class="tabs tabs-fixed-width tabs-transparent">
-                                    <li class="tab"><a href="#{{budget}}">budget</a></li>
-                                    <li class="tab"><a href="#{{first_name}}">Languages</a></li>
-                                    <li class="tab"><a href="#{{last_name}}">Contact</a></li>
+                                    <li class="tab"><a href="#money{{id}}">budget</a></li>
+                                    <li class="tab"><a href="#language{{id}}">Languages</a></li>
+                                    <li class="tab"><a href="#contact{{id}}">Contact</a></li>
                                 </ul>
                             </div>
                             <div class="card-content blue darken-4">
-                                <div id="{{budget}}">Salary: {{budget}}</div>
-                                <div id="{{first_name}}">Languages Desired: {{languages}}</div>
-                                <div id="{{last_name}}">Email: {{employer_email}} Phone: {{employer_phone}}</div>
+                                <div id="money{{id}}">Salary: {{budget}}</div>
+                                <div id="language{{id}}">Languages Desired: {{languages_needed}}</div>
+                                <div id="#contact{{id}}">Email: {{employer_email}} Phone: {{employer_phone}} Location:
+                                    {{city_name}}</div>
                             </div>
                         </div>
                     </div>
+
                     {{/each}}
                 </div>
             </div>

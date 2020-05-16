@@ -11,8 +11,8 @@ selectAllEmployers : function(employer, cb){
 }
 ,
 
-insertEmployer : function(first_name, last_name, business_name, languages, project_details, budget, employer_email, employer_phone, cb){
-    var queryString = `INSERT INTO employer (first_name, last_name, business_name, languages, project_details, budget, employer_email, employer_phone) VALUES ("${first_name}", "${last_name}", "${business_name}", "${languages}", "${project_details}", "${budget}", "${employer_email}", "${employer_phone}");`
+insertEmployer : function(first_name, last_name, business_name, languages_needed, project_details, budget, employer_email, employer_phone, city_name, cb){
+    var queryString = `INSERT INTO employer (first_name, last_name, business_name, languages_needed, project_details, budget, employer_email, employer_phone, city_name) VALUES ("${first_name}", "${last_name}", "${business_name}", "${languages_needed}", "${project_details}", "${budget}", "${employer_email}", "${employer_phone}", "${city_name}");`
     connection.query(queryString, function(err, result){
         if (err) throw err;
         console.log(result);
@@ -29,8 +29,8 @@ selectAllEmployees :function(employee, cb){
     })
 },
 
-insertEmployee : function(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, cb){
-    var queryString = `INSERT INTO employee (first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone) VALUES ("${first_name}", "${last_name}", "${years_experience}", "${languages_known}", "${salary_desired}", "${employee_email}", "${employee_phone}");`
+insertEmployee : function(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, city_name, cb){
+    var queryString = `INSERT INTO employee (first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, city_name) VALUES ("${first_name}", "${last_name}", "${years_experience}", "${languages_known}", "${salary_desired}", "${employee_email}", "${employee_phone}", "${city_name}");`
     connection.query(queryString, function(err, result){
         if (err) throw err;
         console.log(result);

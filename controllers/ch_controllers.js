@@ -12,11 +12,11 @@ var router = express.Router();
 var employer = require('../models/employer')
 
 router.get('/', function(req,res){
-    res.render('index')
+    res.redirect('index.html')
 })
 
 router.get('/employer-form', function(req, res){
-    res.render('employerform')
+    res.redirect('employerform.html')
 })
 
 // gets all employers and displays info in cards on employer.handlebars
@@ -30,11 +30,15 @@ router.get('/employers', function (req, res){
     })
 })
 
+router.get('/search-employers', function(req, res){
+    res.render('employer-search')
+})
+
 // posts one new employer with information from form on employer.handlebars
 
 router.post('/api/employers', function(req, res){
     console.log('rout was hit', req.body)
-    employer.addEmployer(req.body.first_name, req.body.last_name, req.body.business_name, req.body.languages, req.body.project_details, req.body.budget, req.body.employer_email, req.body.employer_phone, function (result){
+    employer.addEmployer(req.body.first_name, req.body.last_name, req.body.business_name, req.body.languages_needed, req.body.project_details, req.body.budget, req.body.employer_email, req.body.employer_phone, req.body.city_name, function (result){
         console.log('new employer added')
         res.json({id:result.insertId})
     })
@@ -43,7 +47,7 @@ router.post('/api/employers', function(req, res){
 var employee = require('../models/employee')
 
 router.get('/employee-form', function(req, res){
-    res.render('employeeform')
+    res.redirect('employeeform.html')
 })
 
 router.get('/employees', function (req, res){
@@ -56,9 +60,13 @@ router.get('/employees', function (req, res){
     })
 })
 
+router.get('/search-employees', function(req, res){
+    res.render('employee-search')
+})
+
 router.post('/api/employees', function(req, res){
     console.log('rout was hit', req.body)
-    employee.addEmployee(req.body.first_name, req.body.last_name, req.body.years_experience, req.body.languages_known, req.body.salary_desired, req.body.employee_email, req.body.employee_phone, function (result){
+    employee.addEmployee(req.body.first_name, req.body.last_name, req.body.years_experience, req.body.languages_known, req.body.salary_desired, req.body.employee_email, req.body.employee_phone, req.body.city_name, function (result){
         console.log('new employee added')
         res.json({id:result.insertId})
     })
