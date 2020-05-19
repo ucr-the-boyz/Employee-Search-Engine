@@ -60,8 +60,19 @@ router.get('/employees', function (req, res){
     })
 })
 
-router.get('/search-employees', function(req, res){
-    res.render('employee-search')
+router.post('/employees', function(req, res){
+
+    console.log(req.body)
+    
+
+    employee.searchEmployeeLanguage(req.body.search, function(data){
+        console.log(data, "what is data")
+        var employeeObj = {
+            employee: data
+        }
+        console.log(employeeObj,'nothing is here')
+        res.json( employeeObj)
+    })
 })
 
 router.post('/api/employees', function(req, res){

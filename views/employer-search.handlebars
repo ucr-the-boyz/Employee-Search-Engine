@@ -1,17 +1,59 @@
-<nav>
-    <div class="nav-wrapper blue darken-4">
-        <a href="/" class="brand-logo">Code Hunters</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-            <li><a href="/employees">All Coders</a></li>
-            <li><a href="/search-employees">Hunt Coders</a></li>
-            <li><a href="/employers">All Employers</a></li>
-            <li><a href="/search-employers">Hunt Employers</a></li>
-
-        </ul>
+<nav class="top-nav  blue darken-4">
+    <div class="container  blue darken-4">
+        <div class="nav-wrapper blue darken-4">
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <a href="/" class="brand-logo">Code Hunters</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/employees">All Coders</a></li>
+                        <li><a href="/search-employees">Hunt Coders</a></li>
+                        <li><a href="/employers">All Employers</a></li>
+                        <li><a href="/search-employers">Hunt Employers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
 
+
+<ul class="sidenav sidenav-fixed">
+    <li class="search">
+        <div class="search-wrapper">
+            <input type="text" id="employee-search" placeholder="Search">
+            <div class="search-results"></div>
+        </div>
+    </li>
+    <form action="#">
+        <p class="range-field">
+            Distance
+            <input type="range" id="miles_away" min="0" max="500" />
+        </p>
+        <p class="range-field">
+            Years of Experience
+            <input type="range" id="years_of_experience" min="0" max="20" />
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio" />
+                <span>Yellow</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="group1" type="radio" />
+                <span>Green</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio" disabled="disabled" />
+                <span>Brown</span>
+            </label>
+        </p>
+    </form>
+</ul>
 
 <div class="container">
     <div class="row">
@@ -22,30 +64,19 @@
     </div>
 </div>
 
+<div class="divider"></div>
 
 <div class="container">
-    <div class="row">
-        <div class="col s6">
-            <form>
-                <div class="input-field">
-                    <input id="search" type="search" placeholder="Search" required>
-                    <label class="label-icon" for="search"><i class="material-icons"></i></label>
-                    <i class="material-icons">x</i>
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="section">
+                    <div class="col s12">
+                        <span class="title">Code Hunters</span>
+                    </div>
+
                 </div>
-                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Filter Parameters</a>
-
-                <!-- Dropdown Structure -->
-
-            </form>
+            </div>
         </div>
-        <div class="col s4">
-            <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#1">Languages</a></li>
-                <li><a href="#2">Distance</a></li>
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="#3">Years Experience</a></li>
-            </ul>
-        </div>
-
     </div>
 </div>

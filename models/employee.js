@@ -11,6 +11,11 @@ var employee = {
         orm.insertEmployee(first_name, last_name, years_experience, languages_known, salary_desired, employee_email, employee_phone, city_name, function(result){
             cb(result)
         })
+    },
+    searchEmployeeLanguage: function(search, cb){
+        orm.selectCertainEmployees(search, function(result){
+            cb(result)
+        })
     }
 }
 
