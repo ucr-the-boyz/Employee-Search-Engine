@@ -36,6 +36,14 @@ insertEmployee : function(first_name, last_name, years_experience, languages_kno
         console.log(result);
         cb(result)
     })
+},
+
+selectCertainEmployees : function (search, cb){
+    var queryString = `SELECT * FROM employee WHERE languages_known like '%${search}%';`
+    connection.query(queryString, [search], function (err, result){
+        if(err) throw err;
+        cb (result)
+    })
 }
 
 };

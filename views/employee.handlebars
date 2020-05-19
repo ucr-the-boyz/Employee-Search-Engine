@@ -1,15 +1,73 @@
-<nav>
-    <div class="nav-wrapper green darken-4">
-        <a href="/" class="brand-logo">Code Hunters</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">Home</a></li>
-            <li><a href="/employees">All Coders</a></li>
-            <li><a href="/search-employees">Hunt Coders</a></li>
-            <li><a href="/employers">All Employers</a></li>
-            <li><a href="/search-employers">Hunt Employers</a></li>
-        </ul>
+<nav class="top-nav  blue darken-4">
+    <div class="container  blue darken-4">
+        <div class="nav-wrapper blue darken-4">
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <a href="/" class="brand-logo">Code Hunters</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/employees">All Coders</a></li>
+                        <li><a href="/search-employees">Hunt Coders</a></li>
+                        <li><a href="/employers">All Employers</a></li>
+                        <li><a href="/search-employers">Hunt Employers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
+
+
+<ul class="sidenav sidenav-fixed">
+    <form class="search employee-search">
+        <div class="search-wrapper employee-search">
+            <input type="text" id="employee_lang" placeholder="Search" name="search">
+            <div class="search-results"></div>
+            <div class="input-field col s4">
+                <button class="btn btn-info">Search for Coders!</button>
+            </div>
+        </div>
+    </form>
+
+    <form class="search city-input">
+        <div class="search-wrapper city-input">
+            <input type="text" id="city-origin" placeholder="City">
+            <div class="search-results"></div>
+            <div class="input-field col s4">
+                <button class="btn btn-info" href='/employee-search'>Where are you located?</button>
+            </div>
+        </div>
+    </form>
+
+    <form action="#">
+        <p class="range-field">
+            Distance
+            <input type="range" id="miles_away" min="0" max="500" />
+        </p>
+        <p class="range-field">
+            Years of Experience
+            <input type="range" id="years_of_experience" min="0" max="20" />
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio" />
+                <span>Yellow</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="group1" type="radio" />
+                <span>Green</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="group1" type="radio" disabled="disabled" />
+                <span>Brown</span>
+            </label>
+        </p>
+    </form>
+</ul>
 
 
 <div class="container">
@@ -24,7 +82,7 @@
 <div class="divider"></div>
 
 <div class="container">
-    <div class="section">
+    <div class="section" id="card-container">
         <div class="row">
             <div class="col s12">
                 <div class="section">
@@ -32,7 +90,7 @@
                         <span class="title">Code Hunters</span>
                     </div>
                     {{#each employee}}
-                    <div class="col s12 m6 l4">
+                    <div class="col s12 m6 l4" id="{{id}}">
                         <div class="card green darken-4 hoverable small white-text">
                             <div class="card-content white-text">
                                 <span class="card-title">{{first_name}} {{last_name}}</span>
@@ -47,7 +105,7 @@
                                 <div class="divider"></div>
                                 <p>Phone: {{employee_phone}}</p>
                                 <div class="divider"></div>
-                                <p>Location: {{city_name}}</p>
+                                <p class='city_name'>Location: {{city_name}}</p>
                             </div>
                         </div>
                     </div>
