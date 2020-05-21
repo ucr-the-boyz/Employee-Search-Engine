@@ -30,9 +30,7 @@ router.get('/employers', function (req, res){
     })
 })
 
-router.get('/search-employers', function(req, res){
-    res.render('employer-search')
-})
+
 
 // posts one new employer with information from form on employer.handlebars
 
@@ -80,6 +78,22 @@ router.post('/api/employees', function(req, res){
     employee.addEmployee(req.body.first_name, req.body.last_name, req.body.years_experience, req.body.languages_known, req.body.salary_desired, req.body.employee_email, req.body.employee_phone, req.body.city_name, function (result){
         console.log('new employee added')
         res.json({id:result.insertId})
+    })
+})
+
+
+router.post('/employers', function(req, res){
+
+    console.log(req.body)
+    
+
+    employer.searchCertainEmployer(req.body.search, function(data){
+        console.log(data, "what is data")
+        var employerObj = {
+            employer: data
+        }
+        console.log(employerObj,'nothing is here')
+        res.json( employerObj)
     })
 })
 

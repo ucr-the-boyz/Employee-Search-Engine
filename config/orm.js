@@ -44,6 +44,14 @@ selectCertainEmployees : function (search, cb){
         if(err) throw err;
         cb (result)
     })
+},
+
+selectEmployersLanguage : function (search, cb){
+    var queryString = `SELECT * FROM employer WHERE languages_needed like '%${search}%';`
+    connection.query(queryString, [search], function (err, result){
+        if(err) throw err;
+        cb (result)
+    })
 }
 
 };
