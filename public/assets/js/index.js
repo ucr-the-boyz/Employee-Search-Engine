@@ -221,7 +221,7 @@ window.onload = function () {
         //---------------------------------------------------------------
         $(document).ready(function () {
             // HTML geo location
-            $('#myLocationBtn').click(function (e) {
+            $('#miles_away').on('mouseup', (function (e) {
                 e.preventDefault();
                 function getLocation() {
                     if (navigator.geolocation) {
@@ -252,7 +252,7 @@ window.onload = function () {
                     //API Call end
                 }
                 getLocation();
-            });
+            }));
         });
 
         
