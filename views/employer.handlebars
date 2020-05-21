@@ -7,9 +7,7 @@
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
                         <li><a href="/employees">All Coders</a></li>
-                        <li><a href="/search-employees">Hunt Coders</a></li>
                         <li><a href="/employers">All Employers</a></li>
-                        <li><a href="/search-employers">Hunt Employers</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,36 +31,14 @@
         <div class="search-wrapper city-input">
             <div class="search-results"></div>
             <div class="input-field col s4">
-                <button class="btn btn-info" href='/employee-search'>Where are you located?</button>
+                <button class="btn btn-info" id='employerLocation' href='/employee-search'>Share Your Location</button>
             </div>
         </div>
     </form>
     <form action="#">
         <p class="range-field">
             Distance
-            <input type="range" id="miles_away" min="0" max="500" />
-        </p>
-        <p class="range-field">
-            Years of Experience
-            <input type="range" id="years_of_experience" min="0" max="20" />
-        </p>
-        <p>
-            <label>
-                <input name="group1" type="radio" />
-                <span>Yellow</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="group1" type="radio" />
-                <span>Green</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input name="group1" type="radio" disabled="disabled" />
-                <span>Brown</span>
-            </label>
+            <input type="range" id="distance_from" min="0" max="500" />
         </p>
     </form>
 </ul>
