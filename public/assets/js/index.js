@@ -217,7 +217,7 @@ window.onload = function () {
                 location.reload();
             })
         })
-        //code for geo mapping
+        //filters out employees based on their location
         //---------------------------------------------------------------
         $(document).ready(function () {
             // HTML geo location
@@ -294,6 +294,81 @@ window.onload = function () {
             }));
         });
 
+
+        $(document).ready(function () {
+            // HTML geo location
+            $('#distance_from').on('mouseup', (function (e) {
+                e.preventDefault();
+
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+
+                function showPosition(position) {
+                    //API Call start by lat & Long
+                    let locationLatId = position.coords.latitude;
+                    console.log("Latitude: " + position.coords.latitude);
+                    let locationLonId = position.coords.longitude;
+                    console.log("Longitude: " + position.coords.longitude);
+                    // console.log("pushed_city_origin " +pushed_city_origin);
+                    let milesAway = $("#distance_from").val();
+                    console.log(milesAway);
+                    // var queryURL = `http://geodb-free-service.wirefreethought.com/v1/geo/cities/${pushed_city_origin}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
+                    var queryURL = `http://geodb-free-service.wirefreethought.com//v1/geo/locations/${locationLatId}${locationLonId}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
+                    $.ajax({
+                            url: queryURL,
+                            method: "GET"
+                        })
+                        .then(function (response) {
+                            console.log(response.data)
+                            arrayPush(response);
+
+                            function arrayPush(response) {
+                                let location = response.data;
+                                console.log(location)
+                                let employerMatch = [];
+                                    $.ajax({
+                                        url: '/api/employers',
+                                        method: 'GET'
+                                    }).then((res) => {
+                                        console.log(res)
+                                let employer = res.employer
+                            for(var i = 0; i < employer.length; i++){
+                                let employerCityMatch = false
+                                for(var y = 0; y < location.length; y++){
+                                if(employer[i].city_name === location[y].city){
+                                    employerMatch.push(employer[i])
+                                    employerCityMatch = true
+                                    $(`#${employer[i].id}`).removeClass('hidden')
+                                    break
+                                }}
+                                if(!employerCityMatch){
+                                    $(`#${employer[i].id}`).addClass('hidden')
+                                }
+                                console.log(employerMatch)
+                                
+                                
+                            }
+                            })
+                                
+                            }
+
+
+                            // function that loops the location on the web page and filters out the names listed.
+
+
+                        });
+                    //API Call end
+                    
+
+                }
+                getLocation();
+            }));
+        });
 
 
 
