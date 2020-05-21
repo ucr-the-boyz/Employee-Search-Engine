@@ -75,6 +75,7 @@ window.onload = function () {
                         </div>`
 
                         $('#card-container').append(row)
+                        $('#row-' + i).append(rowString)
                         
                         console.log("row string is", rowString)
 
@@ -92,6 +93,80 @@ window.onload = function () {
         // /employee/search/?q="asdfsadf"
         // res.render("/")
 
+
+        $('.employer-search').on('submit', function (e) {
+            e.preventDefault();
+            var employerLang = {
+                search: $('#employer_lang').val()
+            }
+            console.log('language being searched', employerLang)
+
+            $.ajax(`/employers?search=${employerLang.search}`, {
+                type: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify(employerLang)
+            }).then((response) => {
+                console.log(response, ' is the code language')
+
+                $('#card-container-employer').html('')
+
+
+                let rowStringEmployer = ""
+
+                for (let i = 0; i < response.employer.length; i++) {
+
+                    let newdivEmployer = `
+                    
+                    <div class="col s12 m6 l4" id='${response.employer[i].id}'>
+                        <div class="card blue darken-4 hoverable large white-text">
+                            <div class="card-content white-text">
+                                <span class="card-title">${response.employer[i].first_name} ${response.employer[i].last_name}</span>
+                                <div class="divider"></div>
+                                <br>
+                                <p>Business: ${response.employer[i].business_name}</p>
+                                <div class="divider"></div>
+                                <br>
+                                <p>Project Details: ${response.employer[i].project_details}</p>
+                            </div>
+                            <div class="card-tabs">
+                                <ul class="tabs tabs-fixed-width tabs-transparent">
+                                    <li class="tab"><a href="#money${response.employer[i].id}">budget</a></li>
+                                    <li class="tab"><a href="#language${response.employer[i].id}">Languages</a></li>
+                                    <li class="tab"><a href="#contact${response.employer[i].id}">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="card-content blue darken-4">
+                                <div id="money${response.employer[i].id}">Salary: ${response.employer[i].budget}</div>
+                                <div id="language${response.employer[i].id}">Languages Desired: ${response.employer[i].languages_needed}</div>
+                                <div id="contact${response.employer[i].id}">Email: ${response.employer[i].employer_email} Phone: ${response.employer[i].employer_phone} Location:
+                                ${response.employer[i].city_name}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    `
+
+                    rowStringEmployer = rowStringEmployer + newdivEmployer
+
+                    // append if divisible by 3 OR we are at the end of the array
+                    if (i % 3 == 0 && i != 0 || i == response.employer.length - 1) {
+                        let rowEmployer = `
+                        <div class="row">
+                            <div class="col s12" id=${"row-" + i}>
+                            </div>
+                        </div>`
+
+                        $('#card-container-employer').append(rowEmployer)
+                        $('#row-' + i).append(rowStringEmployer)
+
+                        console.log("row string is", rowStringEmployer)
+                        rowStringEmployer = ""
+                    }
+                }
+                //location.reload();
+            })
+        })
 
 
         $('.employer-form').on('submit', function (e) {
@@ -142,39 +217,45 @@ window.onload = function () {
                 location.reload();
             })
         })
-
-
-        $('.city-input').on('submit', function (e) {
-            e.preventDefault();
-            var city_origin = $('#city-origin').val().trim().toLowerCase();
-            // var city_
-
-            console.log('is this being hit', city_origin);
-
-            var queryURL = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&namePrefix=" + city_origin + "&types=CITY";
-
-            $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                })
-                .then(function (response) {
-                    console.log(response.data[0].id);
-                    // var originalCityId = response.data[0].id;
-                });
-
-            // var queryURL = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&namePrefix=" + city_input + "&types=CITY";
-
-            // $.ajax({
-            //         url: queryURL,
-            //         method: "GET"
-            //     })
-            //     .then(function (response) {
-            //         console.log(response.data[0].id);
-            //         var originalCityId = response.data[0].id;
-            //     });
-
-
+//code for geo mapping
+        //---------------------------------------------------------------
+        $(document).ready(function () {
+            // HTML geo location
+            $('#myLocationBtn').click(function (e) {
+                e.preventDefault();
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+                function showPosition(position) {
+                    //API Call start by lat & Long
+                    let locationLatId = position.coords.latitude;
+                    console.log("Latitude: " + position.coords.latitude);
+                    let locationLonId = position.coords.longitude;
+                    console.log("Longitude: " + position.coords.longitude);
+                    // console.log("pushed_city_origin " +pushed_city_origin);
+                    let milesAway = $("#miles_away").val();
+                    console.log(milesAway);
+                    // var queryURL = `http://geodb-free-service.wirefreethought.com/v1/geo/cities/${pushed_city_origin}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
+                    var queryURL = `http://geodb-free-service.wirefreethought.com//v1/geo/locations/${locationLatId}${locationLonId}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
+                    // /v1/geo/locations/{locationId}/nearbyCities?limit=5&offset=0&radius=100
+                    $.ajax({
+                            url: queryURL,
+                            method: "GET"
+                        })
+                        .then(function (response) {
+                            console.log(response.data);
+                        });
+                    //API Call end
+                }
+                getLocation();
+            });
         });
+
+        
 
 
     })

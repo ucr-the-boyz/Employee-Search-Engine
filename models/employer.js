@@ -12,6 +12,11 @@ var employer = {
         orm.insertEmployer(first_name, last_name, business_name, languages_needed, project_details, budget, employer_email, employer_phone, city_name, function(result){
             cb(result)
         })
+    },
+    searchCertainEmployer: function(search, cb){
+        orm.selectEmployersLanguage(search, function(result){
+            cb(result)
+        })
     }
 }
 

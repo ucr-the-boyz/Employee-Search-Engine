@@ -19,12 +19,24 @@
 
 
 <ul class="sidenav sidenav-fixed">
-    <li class="search">
-        <div class="search-wrapper">
-            <input type="text" id="employee-search" placeholder="Search">
+    <form class="search employer-search">
+        <div class="search-wrapper employer-search">
+            <input type="text" id="employer_lang" placeholder="Search" name="search">
             <div class="search-results"></div>
+            <div class="input-field col s4">
+                <button class="btn btn-info">Search for Coders!</button>
+            </div>
         </div>
-    </li>
+    </form>
+
+    <form class="search city-input">
+        <div class="search-wrapper city-input">
+            <div class="search-results"></div>
+            <div class="input-field col s4">
+                <button class="btn btn-info" href='/employee-search'>Where are you located?</button>
+            </div>
+        </div>
+    </form>
     <form action="#">
         <p class="range-field">
             Distance
@@ -67,43 +79,44 @@
 <div class="divider"></div>
 
 <div class="container">
-    <div class="section">
+    <div class="section" id='card-container-employer'>
         <div class="row">
             <div class="col s12">
                 <div class="section">
                     <div class="col s12">
                         <span class="title">Code Hunters</span>
                     </div>
-
-                    {{#each employer}}
-                    <div class="col s12 m6 l4">
-                        <div class="card blue darken-4 hoverable large white-text">
-                            <div class="card-content white-text">
-                                <span class="card-title">{{first_name}} {{last_name}}</span>
-                                <div class="divider"></div>
-                                <br>
-                                <p>Business: {{business_name}}</p>
-                                <div class="divider"></div>
-                                <br>
-                                <p>Project Details: {{project_details}}</p>
-                            </div>
-                            <div class="card-tabs">
-                                <ul class="tabs tabs-fixed-width tabs-transparent">
-                                    <li class="tab"><a href="#money{{id}}">budget</a></li>
-                                    <li class="tab"><a href="#language{{id}}">Languages</a></li>
-                                    <li class="tab"><a href="#contact{{id}}">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="card-content blue darken-4">
-                                <div id="money{{id}}">Salary: {{budget}}</div>
-                                <div id="language{{id}}">Languages Desired: {{languages_needed}}</div>
-                                <div id="#contact{{id}}">Email: {{employer_email}} Phone: {{employer_phone}} Location:
-                                    {{city_name}}</div>
+                        {{#each employer}}
+                        <div class="col s12 m6 l4" id="{{id}}">
+                            <div class="card blue darken-4 hoverable large white-text">
+                                <div class="card-content white-text">
+                                    <span class="card-title">{{first_name}} {{last_name}}</span>
+                                    <div class="divider"></div>
+                                    <br>
+                                    <p>Business: {{business_name}}</p>
+                                    <div class="divider"></div>
+                                    <br>
+                                    <p>Project Details: {{project_details}}</p>
+                                </div>
+                                <div class="card-tabs">
+                                    <ul class="tabs tabs-fixed-width tabs-transparent">
+                                        <li class="tab"><a href="#money{{id}}">budget</a></li>
+                                        <li class="tab"><a href="#language{{id}}">Languages</a></li>
+                                        <li class="tab"><a href="#contact{{id}}">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="card-content blue darken-4">
+                                    <div id="money{{id}}">Salary: {{budget}}</div>
+                                    <div id="language{{id}}">Languages Desired: {{languages_needed}}</div>
+                                    <div id="contact{{id}}">Email: {{employer_email}} Phone: {{employer_phone}}
+                                        Location:
+                                        {{city_name}}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{/each}}
+                        {{/each}}
+                    
                 </div>
             </div>
         </div>
