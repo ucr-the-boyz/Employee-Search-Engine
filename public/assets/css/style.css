@@ -43,3 +43,7 @@ div.container6 p {
     margin: auto;
     width: 40%;
 }
+
+.hidden{
+    display: none;
+}

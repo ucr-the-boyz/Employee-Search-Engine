@@ -30,6 +30,26 @@ router.get('/employers', function (req, res){
     })
 })
 
+router.get('/api/employers', function (req, res){
+    employer.allEmployers(function(data){
+        var employerObj = {
+            employer: data
+        }
+        // console.log(employerObj)
+        res.json(employerObj)
+    })
+})
+
+router.get('/api/employees', function (req, res){
+    employee.allEmployees(function(data){
+        var employeeObj = {
+            employee: data
+        }
+        // console.log(employerObj)
+        res.json(employeeObj)
+    })
+})
+
 
 
 // posts one new employer with information from form on employer.handlebars

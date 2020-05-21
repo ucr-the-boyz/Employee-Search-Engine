@@ -36,9 +36,9 @@ window.onload = function () {
 
                 let rowString = ""
 
-                for( let i = 0; i < response.employee.length; i++){
-                    
-             
+                for (let i = 0; i < response.employee.length; i++) {
+
+
 
 
 
@@ -64,10 +64,10 @@ window.onload = function () {
                     </div>
                 </div>`
 
-                rowString = rowString + newdiv
+                    rowString = rowString + newdiv
 
-                       // append if divisible by 3 OR we are at the end of the array
-                       if(i % 3 == 0 && i != 0 || i == response.employee.length -1 ) {
+                    // append if divisible by 3 OR we are at the end of the array
+                    if (i % 3 == 0 && i != 0 || i == response.employee.length - 1) {
                         let row = `
                         <div class="row">
                             <div class="col s12" id=${"row-" + i}>
@@ -76,7 +76,7 @@ window.onload = function () {
 
                         $('#card-container').append(row)
                         $('#row-' + i).append(rowString)
-                        
+
                         console.log("row string is", rowString)
 
 
@@ -217,12 +217,13 @@ window.onload = function () {
                 location.reload();
             })
         })
-//code for geo mapping
+        //code for geo mapping
         //---------------------------------------------------------------
         $(document).ready(function () {
             // HTML geo location
             $('#miles_away').on('mouseup', (function (e) {
                 e.preventDefault();
+
                 function getLocation() {
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(showPosition);
@@ -230,6 +231,7 @@ window.onload = function () {
                         x.innerHTML = "Geolocation is not supported by this browser.";
                     }
                 }
+
                 function showPosition(position) {
                     //API Call start by lat & Long
                     let locationLatId = position.coords.latitude;
@@ -241,21 +243,58 @@ window.onload = function () {
                     console.log(milesAway);
                     // var queryURL = `http://geodb-free-service.wirefreethought.com/v1/geo/cities/${pushed_city_origin}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
                     var queryURL = `http://geodb-free-service.wirefreethought.com//v1/geo/locations/${locationLatId}${locationLonId}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
-                    // /v1/geo/locations/{locationId}/nearbyCities?limit=5&offset=0&radius=100
                     $.ajax({
                             url: queryURL,
                             method: "GET"
                         })
                         .then(function (response) {
-                            console.log(response.data);
+                            console.log(response.data)
+                            arrayPush(response);
+
+                            function arrayPush(response) {
+                                let location = response.data;
+                                console.log(location)
+                                let employeeMatch = [];
+                                    $.ajax({
+                                        url: '/api/employees',
+                                        method: 'GET'
+                                    }).then((res) => {
+                                        console.log(res)
+                                let employee = res.employee
+                            for(var i = 0; i < employee.length; i++){
+                                let cityMatch = false
+                                for(var y = 0; y < location.length; y++){
+                                if(employee[i].city_name === location[y].city){
+                                    employeeMatch.push(employee[i])
+                                    cityMatch = true
+                                    $(`#${employee[i].id}`).removeClass('hidden')
+                                    break
+                                }}
+                                if(!cityMatch){
+                                    $(`#${employee[i].id}`).addClass('hidden')
+                                }
+                                console.log(employeeMatch)
+                                
+                                
+                            }
+                            })
+                                
+                            }
+
+
+                            // function that loops the location on the web page and filters out the names listed.
+
+
                         });
                     //API Call end
+                    
+
                 }
                 getLocation();
             }));
         });
 
-        
+
 
 
     })
