@@ -45,7 +45,7 @@ window.onload = function () {
                     let newdiv = `
                     
                     <div class="col s12 m6 l4" id="${response.employee[i].id}">
-                        <div class="card green darken-4 hoverable small white-text">
+                        <div class="card blue darken-4 hoverable small white-text">
                             <div class="card-content white-text">
                             <span class="card-title">${response.employee[i].first_name} ${response.employee[i].last_name}</span>
                             <div class="divider"></div>

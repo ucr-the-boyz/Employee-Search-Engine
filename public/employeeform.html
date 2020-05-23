@@ -16,8 +16,9 @@
 <body>
 
     <nav>
-        <div class="nav-wrapper blue">
-            <a href="/" class="brand-logo" style="margin-left: 20;">Code Hunters</a>
+        <div class="nav-wrapper blue darken-4">
+            <a href="/" class="brand-logo" style="margin-left: 20;"><img id='code_hunter_logo'
+                    src="./assets/imgs/new_new_logo.png" alt="Code Hunter Logo"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
                 <li><a href="/employees">All Coders</a></li>
@@ -40,12 +41,16 @@
                         <input id="first_name" type="text" class="validate" name="first_name">
                         <label class="active" for="first_name">First Name</label>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="input-field col s6">
                         <input id="last_name" type="text" class="validate" name="last_name">
                         <label class="active" for="last_name">Last Name</label>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="input-field col s6">
                         <select multiple id="languages_known">
                             <option value="" disabled selected>Choose Three Languages</option>
@@ -62,45 +67,59 @@
                         </select>
                         <label for="languages_known">Coding Languages Desired</label>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="col s6">
                         <div class="input-field inline">
-                            Only input numbers as integers:
-                            <input id="years_experience" type="text" class="validate" name="years_experience">
+                            <input id="years_experience" type="text" class="validate" name="years_experience"
+                                placeholder="5">
                             <label class="active" for="years_experience">Years of Experience</label>
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="col s6">
                         <div class="input-field inline">
-                            Only input numbers as integers:
-                            <input id="salary_desired" type="text" class="validate" name="salary_desired">
+                            <input id="salary_desired" type="text" class="validate" name="salary_desired"
+                                placeholder="75000.00">
                             <label class="active" for="salary_desired">Desired Salary</label>
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="input-field col s6">
                         <input id="employee_email" type="text" class="validate" name="employee_email">
                         <label class="active" for="employee_email">Email</label>
                     </div>
+                </div>
 
+                <div class="row">
                     <div class="col s6">
                         <div class="input-field inline">
-                            example 112-818-3903
-                            <input id="employee_phone" type="tel" class="validate" name="employee_phone">
+
+                            <input id="employee_phone" type="tel" class="validate" name="employee_phone"
+                                placeholder="123-123-1234">
                             <label class="active" for="employee_phone">Phone Number</label>
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="input-field col s6">
                         <input id="city_name" type="text" class="validate" name="city_name">
                         <label class="active" for="city_name">Where are you located?</label>
                     </div>
-
-                    <div class="input-field col s4">
-                        <button class="btn btn-info">Hunt for Coders!</button>
-                    </div>
-
                 </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <button class="btn blue darken-4">Hunt for Coders!</button>
+                    </div>
+                </div>
+
             </form>
 
         </div>
