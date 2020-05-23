@@ -1,9 +1,9 @@
-<nav class="top-nav  blue darken-4">
-    <div class="container  blue darken-4">
-        <div class="nav-wrapper blue darken-4">
+<nav class="top-nav   blue darken-4">
+    <div class="container   blue darken-4">
+        <div class="nav-wrapper  blue darken-4">
             <div class="row">
                 <div class="col s12 m10 offset-m1">
-                    <a href="/" class="brand-logo">Code Hunters</a>
+                    <a href="/" class="brand-logo" style="margin-left: 20;"><img id='code_hunter_logo' src="./assets/imgs/new_new_logo.png" alt="Code Hunter Logo"></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
                         <li><a href="/employees">All Coders</a></li>
@@ -22,7 +22,7 @@
             <input type="text" id="employee_lang" placeholder="Search" name="search">
             <div class="search-results"></div>
             <div class="input-field col s4">
-                <button class="btn btn-info">Search for Coders!</button>
+                <button class="btn blue darken-4">Search for Coders!</button>
             </div>
         </div>
     </form>
@@ -31,7 +31,7 @@
         <div class="search-wrapper city-input">
             <div class="search-results"></div>
             <div class="input-field col s4">
-                <button id='myLocationBtn' class="btn btn-info" href='/employee-search'>Share Your Location</button>
+                <button id='myLocationBtn' class="btn blue darken-4" href='/employee-search'>Share Your Location</button>
             </div>
         </div>
     </form>
@@ -39,7 +39,7 @@
     <form action="#">
         <p class="range-field">
             Distance
-            <input type="range" id="miles_away" min="0" max="500" />
+            <input type="range" id="miles_away" min="0" max="100" />
         </p>
     </form>
 </ul>
@@ -66,7 +66,7 @@
                     </div>
                     {{#each employee}}
                     <div class="col s12 m6 l4" id="{{id}}">
-                        <div class="card green darken-4 hoverable small white-text">
+                        <div class="card blue darken-4 hoverable small white-text">
                             <div class="card-content white-text">
                                 <span class="card-title">{{first_name}} {{last_name}}</span>
                                 <div class="divider"></div>
