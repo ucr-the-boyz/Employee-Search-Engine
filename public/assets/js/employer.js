@@ -140,7 +140,7 @@ window.onload = function () {
                     let milesAway = $("#distance_from").val();
                     console.log(milesAway);
                     // var queryURL = `http://geodb-free-service.wirefreethought.com/v1/geo/cities/${pushed_city_origin}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
-                    var queryURL = `http://geodb-free-service.wirefreethought.com//v1/geo/locations/${locationLatId}${locationLonId}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
+                    var queryURL = `https://geodb-free-service.wirefreethought.com//v1/geo/locations/${locationLatId}${locationLonId}/nearbyCities?limit=10&offset=0&radius=${milesAway}`;
                     $.ajax({
                             url: queryURL,
                             method: "GET"
