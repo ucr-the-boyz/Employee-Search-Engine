@@ -23,5 +23,8 @@
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1",
     "node": "^14.2.0"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
