@@ -1,5 +1,5 @@
 {
-  "name": "group-project-2.github.io",
+  "name": "code-huntes-gp2.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ucr-the-boyz/group-project-2.github.io.git"
+    "url": "git+https://https://github.com/dglassick/code-huntes-gp2.github.io"
   },
   "author": "Derek, Jeremiah, Louie, Takyu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ucr-the-boyz/group-project-2.github.io/issues"
+    "url": "https://https://github.com/dglassick/code-huntes-gp2.github.io/issues"
   },
-  "homepage": "https://github.com/ucr-the-boyz/group-project-2.github.io#readme",
+  "homepage": "https://https://github.com/dglassick/code-huntes-gp2.github.io#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",

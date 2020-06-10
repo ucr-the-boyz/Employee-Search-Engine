@@ -1,1 +1,1 @@
-# group-project-2.github.io
+# code-huntes-gp2.github.io
