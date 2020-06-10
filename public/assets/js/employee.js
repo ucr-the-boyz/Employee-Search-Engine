@@ -16,12 +16,15 @@ window.onload = function () {
             $('select').formSelect();
         });
 
+
+
         $('.employee-search').on('submit', function (e) {
             e.preventDefault();
             var employeeLang = {
                 search: $('#employee_lang').val()
             }
             console.log('language being searched', employeeLang)
+            
 
             $.ajax(`/employees?search=${employeeLang.search}`, {
                 type: 'POST',
@@ -30,65 +33,116 @@ window.onload = function () {
                 data: JSON.stringify(employeeLang)
             }).then((response) => {
                 console.log(response, ' is the code language')
+                
+                arrayLanguagePush(response);
 
-                $('#card-container').html('')
-
-
-                let rowString = ""
-
-                for (let i = 0; i < response.employee.length; i++) {
-
-
-
-
-
-                    let newdiv = `
-                    
-                    <div class="col s12 m6 l4" id="${response.employee[i].id}">
-                        <div class="card blue darken-4 hoverable small white-text">
-                            <div class="card-content white-text">
-                            <span class="card-title">${response.employee[i].first_name} ${response.employee[i].last_name}</span>
-                            <div class="divider"></div>
-                            <p>Years Experience: ${response.employee[i].years_experience}</p>
-                            <div class="divider"></div>
-                            <p>Languages Known: ${response.employee[i].languages_known}</p>
-                            <div class="divider"></div>
-                            <p>Desired Salary: ${response.employee[i].salary_desired}</p>
-                            <div class="divider"></div>
-                            <p>Email: ${response.employee[i].employee_email}</p>
-                            <div class="divider"></div>
-                            <p>Phone: ${response.employee[i].employee_phone}</p>
-                            <div class="divider"></div>
-                            <p class='city_name'>Location: ${response.employee[i].city_name}</p>
-                        </div>
-                    </div>
-                </div>`
-
-                    rowString = rowString + newdiv
-
-                    // append if divisible by 3 OR we are at the end of the array
-                    if (i % 3 == 0 && i != 0 || i == response.employee.length - 1) {
-                        let row = `
-                        <div class="row">
-                            <div class="col s12" id=${"row-" + i}>
-                            </div>
-                        </div>`
-
-                        $('#card-container').append(row)
-                        $('#row-' + i).append(rowString)
-
-                        console.log("row string is", rowString)
+                            function arrayLanguagePush(response) {
+                                let employeeSearch = response.employee;
+                                //console.log(employeeSearch, 'here is language')
+                                let employeeLanguageMatch = [];
+                                $.ajax({
+                                    url: '/api/employees',
+                                    method: 'GET'
+                                }).then((res) => {
+                                    //console.log(res, 'this is res')
+                                    let employeeRes = res.employee
+                                    //console.log('employeeRes', employeeRes)
+                                    //console.log('employeeSearch', employeeSearch)
+                                    for (var i = 0; i < employeeRes.length; i++) {
+                                        let languageMatch = false
+                                        for (var y = 0; y < employeeSearch.length; y++) {
+                                            if (employeeRes[i].id === employeeSearch[y].id) {
+                                                employeeLanguageMatch.push(employeeRes[i])
+                                                languageMatch = true
+                                                $(`#${employeeRes[i].id}`).removeClass('hidden')
+                                                break
+                                            }
+                                        }
+                                        if (!languageMatch) {
+                                            $(`#${employeeRes[i].id}`).addClass('hidden')
+                                        }
+                                        console.log(employeeLanguageMatch, 'here is result')
 
 
+                                    }
+                                })
 
-                        rowString = ""
-
-                    }
-
-                }
-                //location.reload();
-            })
+            }
         })
+
+        // $('.employee-search').on('submit', function (e) {
+        //     e.preventDefault();
+        //     var employeeLang = {
+        //         search: $('#employee_lang').val()
+        //     }
+        //     console.log('language being searched', employeeLang)
+
+        //     $.ajax(`/employees?search=${employeeLang.search}`, {
+        //         type: 'POST',
+        //         contentType: 'application/json',
+        //         dataType: 'json',
+        //         data: JSON.stringify(employeeLang)
+        //     }).then((response) => {
+        //         console.log(response, ' is the code language')
+
+        //         $('#card-container').html('')
+
+
+        //         let rowString = ""
+
+        //         for (let i = 0; i < response.employee.length; i++) {
+
+
+
+
+
+        //             let newdiv = `
+                    
+        //             <div class="col s12 m6 l4" id="${response.employee[i].id}">
+        //                 <div class="card blue darken-4 hoverable small white-text">
+        //                     <div class="card-content white-text">
+        //                     <span class="card-title">${response.employee[i].first_name} ${response.employee[i].last_name}</span>
+        //                     <div class="divider"></div>
+        //                     <p>Years Experience: ${response.employee[i].years_experience}</p>
+        //                     <div class="divider"></div>
+        //                     <p>Languages Known: ${response.employee[i].languages_known}</p>
+        //                     <div class="divider"></div>
+        //                     <p>Desired Salary: ${response.employee[i].salary_desired}</p>
+        //                     <div class="divider"></div>
+        //                     <p>Email: ${response.employee[i].employee_email}</p>
+        //                     <div class="divider"></div>
+        //                     <p>Phone: ${response.employee[i].employee_phone}</p>
+        //                     <div class="divider"></div>
+        //                     <p class='city_name'>Location: ${response.employee[i].city_name}</p>
+        //                 </div>
+        //             </div>
+        //         </div>`
+
+        //             rowString = rowString + newdiv
+
+        //             // append if divisible by 3 OR we are at the end of the array
+        //             if (i % 3 == 0 && i != 0 || i == response.employee.length - 1) {
+        //                 let row = `
+        //                 <div class="row">
+        //                     <div class="col s12" id=${"row-" + i}>
+        //                     </div>
+        //                 </div>`
+
+        //                 $('#card-container').append(row)
+        //                 $('#row-' + i).append(rowString)
+
+        //                 console.log("row string is", rowString)
+
+
+
+        //                 rowString = ""
+
+        //             }
+
+        //         }
+        //         //location.reload();
+        //     })
+        // })
 
 
 
@@ -151,7 +205,7 @@ window.onload = function () {
                             function arrayPush(response) {
                                 let location = response.data;
                                 console.log(location)
-                                let employeeMatch = [];
+                                let employeeLocationMatch = [];
                                 $.ajax({
                                     url: '/api/employees',
                                     method: 'GET'
@@ -162,7 +216,7 @@ window.onload = function () {
                                         let cityMatch = false
                                         for (var y = 0; y < location.length; y++) {
                                             if (employee[i].city_name === location[y].city) {
-                                                employeeMatch.push(employee[i])
+                                                employeeLocationMatch.push(employee[i])
                                                 cityMatch = true
                                                 $(`#${employee[i].id}`).removeClass('hidden')
                                                 break
@@ -171,7 +225,7 @@ window.onload = function () {
                                         if (!cityMatch) {
                                             $(`#${employee[i].id}`).addClass('hidden')
                                         }
-                                        console.log(employeeMatch)
+                                        console.log(employeeLocationMatch)
 
 
                                     }
@@ -192,4 +246,4 @@ window.onload = function () {
             }));
         
     })
-}
+    })}
