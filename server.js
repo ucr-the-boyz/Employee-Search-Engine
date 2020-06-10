@@ -2,6 +2,7 @@
 // =============================================================
 var express = require("express");
 var exphbs = require('express-handlebars');
+var compression = require('compression')
 
 // Sets up the Express App
 // =============================================================
@@ -13,6 +14,10 @@ app.use(express.static( __dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+//compresses all responses
+app.use(compression())
+
 // Static directory
 
 // comment
@@ -20,6 +25,7 @@ app.use(express.json());
 //sets up handlebars
 app.engine('handlebars', exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
+
 
 // Routes
 // =============================================================

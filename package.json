@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
@@ -18,13 +17,11 @@
   },
   "homepage": "https://github.com/ucr-the-boyz/group-project-2.github.io#readme",
   "dependencies": {
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1",
     "node": "^14.2.0"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
