@@ -78,3 +78,21 @@ nav{
 .input-field input:not(.browser-default):focus:not([readonly]) + label, .input-field textarea:not(.browser-default):focus:not([readonly]) +label{
     color: #0d47a1;
 }
+
+/* .sidenav, .sidenav-fixed{
+    max-width: 20%;
+    padding-right: 10px;
+    padding-left: 50px;
+} */
+
+.sidenav.sidenav-fixed{
+    padding-left: 10px;
+}
+
+.section{
+    padding-left: 5%;
+}
+
+#project_details{
+    font-size: 13px;
+}

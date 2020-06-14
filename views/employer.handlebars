@@ -3,7 +3,8 @@
         <div class="nav-wrapper blue darken-4">
             <div class="row">
                 <div class="col s12 m10 offset-m1">
-                    <a href="/" class="brand-logo" style="margin-left: 20;"><img id='code_hunter_logo' src="./assets/imgs/new_new_logo.png" alt="Code Hunter Logo"></a>
+                    <a href="/" class="brand-logo" style="margin-left: 20;"><img id='code_hunter_logo'
+                            src="./assets/imgs/new_new_logo.png" alt="Code Hunter Logo"></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
                         <li><a href="/employees">All Coders</a></li>
@@ -31,7 +32,8 @@
         <div class="search-wrapper city-input">
             <div class="search-results"></div>
             <div class="input-field col s4">
-                <button class="btn blue darken-4" id='employerLocation' href='/employee-search'>Share Your Location</button>
+                <button class="btn blue darken-4" id='employerLocation' href='/employee-search'>Share Your
+                    Location</button>
             </div>
         </div>
     </form>
@@ -44,8 +46,8 @@
 </ul>
 
 <div class="container">
-    <div class="row">
-        <div class="col s12">
+    <div class="section">
+        <div class="row" <div class="col s12">
             <h1 class="header">Employers</h1>
             <h3 class="header">Below are a list of Employers hunting for coders!</h3>
         </div>
@@ -55,48 +57,46 @@
 <div class="divider"></div>
 
 <div class="container">
-    <div class="section" id='card-container-employer'>
-        <div class="row">
-            <div class="col s12">
-                <div class="section">
-                    <div class="col s12">
-                        <span class="title">Code Hunters</span>
-                    </div>
-                        {{#each employer}}
-                        <div class="col s12 m6 l4" id="{{id}}">
-                            <div class="card blue darken-4 hoverable large white-text">
-                                <div class="card-content white-text">
-                                    <span class="card-title">{{first_name}} {{last_name}}</span>
-                                    <div class="divider"></div>
-                                    <br>
-                                    <p>Business: {{business_name}}</p>
-                                    <div class="divider"></div>
-                                    <br>
-                                    <p>Project Details: {{project_details}}</p>
-                                </div>
-                                <div class="card-tabs">
-                                    <ul class="tabs tabs-fixed-width tabs-transparent">
-                                        <li class="tab"><a href="#money{{id}}">budget</a></li>
-                                        <li class="tab"><a href="#language{{id}}">Languages</a></li>
-                                        <li class="tab"><a href="#contact{{id}}">Contact</a></li>
-                                    </ul>
-                                </div>
-                                <div class="card-content blue darken-4">
-                                    <div id="money{{id}}">Salary: {{budget}}</div>
-                                    <div id="language{{id}}">Languages Desired: {{languages_needed}}</div>
-                                    <div id="contact{{id}}">Email: {{employer_email}} Phone: {{employer_phone}}
-                                        Location:
-                                        {{city_name}}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {{/each}}
-                    
+    <div class="row">
+        <div class="col s12">
+            <div class="section">
+                <div class="col s12">
+                    <span class="title">Code Hunters</span>
                 </div>
+                {{#each employer}}
+                <div class="col s12 m6 l4" id="{{id}}">
+                    <div class="card blue darken-4 hoverable large white-text">
+                        <div class="card-content white-text">
+                            <span class="card-title">{{first_name}} {{last_name}}</span>
+                            <div class="divider"></div>
+                            <br>
+                            <p>Business: {{business_name}}</p>
+                            <div class="divider"></div>
+                            <br>
+                            <p id='project_details'>Project Details: {{project_details}}</p>
+                        </div>
+                        <div class="card-tabs">
+                            <ul class="tabs tabs-fixed-width tabs-transparent">
+                                <li class="tab"><a href="#money{{id}}">budget</a></li>
+                                <li class="tab"><a href="#language{{id}}">Languages</a></li>
+                                <li class="tab"><a href="#contact{{id}}">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-content blue darken-4">
+                            <div id="money{{id}}">Salary: {{budget}}</div>
+                            <div id="language{{id}}">Languages Desired: {{languages_needed}}</div>
+                            <div id="contact{{id}}">Email: {{employer_email}} Phone: {{employer_phone}}
+                                Location:
+                                {{city_name}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                {{/each}}
+
             </div>
         </div>
     </div>
 </div>
-    
+</div>
 <script src="./assets/js/employer.js"></script>
