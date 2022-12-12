@@ -18,7 +18,7 @@
   "homepage": "https://https://github.com/dglassick/code-huntes-gp2.github.io#readme",
   "dependencies": {
     "compression": "^1.7.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^4.0.4",
     "inquirer": "^7.1.0",
     "mysql": "^2.18.1",
